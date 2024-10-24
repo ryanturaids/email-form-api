@@ -1,10 +1,17 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
+const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const port = process.env.PORT;
 
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+  })
+);
 
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
