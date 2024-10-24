@@ -27,7 +27,7 @@ app.post("/send-email", async (req, res) => {
     });
 
     let mailOptions = {
-      to: process.env.EMAIL_USER,
+      to: process.env.EMAIL_REC,
       subject: `New Message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
